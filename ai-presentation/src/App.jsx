@@ -22,10 +22,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-obsidian text-pearl font-body">
-      {/* Gradient orbs background */}
+      {/* Subtle gradient orbs background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-neon-lime opacity-[0.06] rounded-full blur-[120px] animate-glow-pulse"></div>
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-neon-cyan opacity-[0.04] rounded-full blur-[100px] animate-glow-pulse" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute -top-32 right-1/3 w-[500px] h-[500px] bg-neon-lime opacity-[0.018] rounded-full blur-[150px]"></div>
+        <div className="absolute -bottom-32 left-1/3 w-[400px] h-[400px] bg-neon-cyan opacity-[0.015] rounded-full blur-[130px]"></div>
       </div>
 
       {/* Header */}
