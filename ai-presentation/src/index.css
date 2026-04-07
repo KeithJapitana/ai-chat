@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+@theme {
+  /* Dark theme (default) */
+  --color-obsidian: #0a0a0f;
+  --color-charcoal: #111118;
+  --color-slate-dark: #1a1a24;
+  --color-slate-mid: #252532;
+  --color-graphite: #2f2f40;
+  --color-steel: #6b6b80;
+  --color-silver: #9e9eb0;
+  --color-pearl: #d0d0dd;
+  --color-ivory: #eeeef4;
+  --color-neon-lime: #b8ff57;
+  --color-neon-lime-dim: rgba(184, 255, 87, 0.12);
+  --color-neon-cyan: #57ffe0;
+  --color-neon-cyan-dim: rgba(87, 255, 224, 0.08);
+  --color-warm-amber: #ffc857;
+  --color-warm-amber-dim: rgba(255, 200, 87, 0.10);
+  --color-hot-coral: #ff577a;
+  --color-hot-coral-dim: rgba(255, 87, 122, 0.10);
+  --color-electric-violet: #a855f7;
+  --color-electric-violet-dim: rgba(168, 85, 247, 0.10);
+
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar for horizontal tab nav */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================
+   DARK THEME (default)
+============================================ */
+body {
+  margin: 0;
+  background: var(--color-obsidian);
+  color: var(--color-pearl);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Noise texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111118;
+}
+::-webkit-scrollbar-thumb {
+  background: #2f2f40;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6b6b80;
+}
+
+/* ============================================
+   LIGHT THEME OVERRIDES
+   Tailwind v4 generates --color-* CSS custom properties
+   from @theme. We override them with a .light class.
+   This means ZERO component code changes.
+============================================ */
+body.light {
+  background: #f5f5f0;
+  color: #1a1a1a;
+}
+
+body.light::before {
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body.light::-webkit-scrollbar-track {
+  background: #f0f0eb;
+}
+body.light::-webkit-scrollbar-thumb {
+  background: #ccc8c0;
+}
+body.light::-webkit-scrollbar-thumb:hover {
+  background: #aaa69e;
+}
+
+/* Override Tailwind color variables for light mode */
+body.light {
+  --color-obsidian: #f5f5f0;
+  --color-charcoal: #ffffff;
+  --color-slate-dark: #eae8e4;
+  --color-slate-mid: #ddd8d0;
+  --color-graphite: #c8c4bc;
+  --color-steel: #888888;
+  --color-silver: #555555;
+  --color-pearl: #1a1a1a;
+  --color-ivory: #111111;
+
+  --color-neon-lime: #3d7a00;
+  --color-neon-lime-dim: rgba(61, 122, 0, 0.07);
+  --color-neon-cyan: #0891b2;
+  --color-neon-cyan-dim: rgba(8, 145, 178, 0.07);
+  --color-warm-amber: #b45309;
+  --color-warm-amber-dim: rgba(180, 83, 9, 0.07);
+  --color-hot-coral: #dc2626;
+  --color-hot-coral-dim: rgba(220, 38, 38, 0.07);
+  --color-electric-violet: #7c3aed;
+  --color-electric-violet-dim: rgba(124, 58, 237, 0.07);
+}
+
+/* ============================================
+   ANIMATIONS
+============================================ */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease both;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.1s; }
+.delay-3 { animation-delay: 0.15s; }
+.delay-4 { animation-delay: 0.2s; }
+.delay-5 { animation-delay: 0.25s; }
+.delay-6 { animation-delay: 0.3s; }
+.delay-7 { animation-delay: 0.35s; }
+.delay-8 { animation-delay: 0.4s; }
+.delay-9 { animation-delay: 0.45s; }
+.delay-10 { animation-delay: 0.5s; }
