@@ -58,7 +58,7 @@ function App() {
       </header>
 
       {/* Tab Navigation */}
-      <nav className="relative z-10 border-b border-slate-mid/30 backdrop-blur-sm sticky top-0 bg-obsidian/80">
+      <nav className="relative z-40 border-b border-slate-mid/30 backdrop-blur-sm sticky top-0 bg-obsidian/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="flex gap-0.5 overflow-x-auto scrollbar-hide animate-fade-in delay-2 -mx-4 px-4 sm:mx-0 sm:px-0">
             {tabs.map((tab) => (
@@ -87,7 +87,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12">
+      <main className="relative z-0 max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12">
         {activeTab === 'cheat-sheet' && <CheatSheet />}
         {activeTab === 'deep-dive' && <DeepDive />}
         {activeTab === 'use-cases' && <UseCases />}
@@ -99,7 +99,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 mt-auto border-t border-slate-mid/30 backdrop-blur-sm">
+      <footer className="relative z-0 mt-auto border-t border-slate-mid/30 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 py-6">
           <p className="text-steel text-xs text-center font-mono">
             Generated {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
